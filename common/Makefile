@@ -68,7 +68,6 @@ $(img_type):
 		 --name $(container_name) \
 		 $(base_image)
 	$(DOCKER) exec $(container_name) /root/tmp/install_$@.sh
-	$(DOCKER) exec $(container_name) /root/tmp/post_install_script.sh
 	$(DOCKER) commit $(commit_opts) $(container_name) $(image_url)
 	$(DOCKER) stop $(container_name) || true
 	$(DOCKER) rm $(container_name) || true
